@@ -14,7 +14,7 @@ Siege is a benchmarking and load testing tool that can be used to measure the pe
 - Throughput.
 - Concurrency.
 - Times the program returned ok.
-- 
+
 ## Siege provides three modes of operation:
 
 Regression.
