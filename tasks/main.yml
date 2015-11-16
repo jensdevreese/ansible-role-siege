@@ -1,0 +1,32 @@
+# roles/ROLENAME/tasks/main.yml
+---
+# Before installing any new program, update your server
+- name: upgrade all packages
+  yum: name=* state=latest
+
+# Download en unzip Siege en zet hem in de Home directory van de vagrant host.
+- name: Download Siege
+  get_url: url=http://download.joedog.org/siege/siege-3.1.0.tar.gz dest=/home/vagrant/ mode=0777
+# unzippen
+- unarchive: src=/home/vagrant/siege-3.1.0.tar.gz dest=/home/vagrant/ copy=no
+
+- name: install the 'Development tools' package group
+  yum: name="@Development tools" state=present
+
+- name: Configure and complete the installation process
+  command: sudo {{ item }} chdir="/home/vagrant/siege-3.1.0"
+  with_items:
+    - ./configure
+    - make
+    - make install
+- name: copy .siegerc
+  copy:
+    src: .siegerc
+    dest: /home/vagrant
+  tags: .siegerc
+
+- name: Make var-directory
+  file: path=/usr/local/var state=directory mode=0777
+
+- name: Make siegelog-file 
+  file: path=/usr/local/var/siege.log state=touch mode=0777
