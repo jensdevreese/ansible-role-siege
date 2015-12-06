@@ -90,8 +90,6 @@ List of settings you can edit here.
 | `follow-location`         | -                                       | `follow-location = true|false`                                      | This option allows to to controlwhether a Location: hint will be followed. Most users will want to follow redirection information, but sometimes  it's desired to just get the Location information.                                                                                                     |
 | `zero-data-ok`            | -                                       | `zero-data-ok = true|false`                                         | Zero-length data. Siege can be configured to disregard results in which zero bytes are read after the headers. Alternatively, such results can be counted in the final tally of outcomes.                                                                                                                |
 
-### Log-file
-
 
 
 

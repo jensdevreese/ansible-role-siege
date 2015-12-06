@@ -14,8 +14,6 @@
 # for more information, man urls_txt
 # -------------------------------------------------------
 
-192.168.56.77/wordpress/
-192.168.56.77/wordpress/index.php/2015/09/21/demo-post-48/
-http://192.168.56.77/wordpress/index.php/category/uncategorized/
-
-# moet komen in directory /usr/local/etc/urls.txt
+{% for target in siege_targets %}
+{{ target }} 
+{% endfor %}
